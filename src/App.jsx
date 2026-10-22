@@ -1,12 +1,6 @@
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Navigate,
-} from "react-router-dom";
-
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import AppLayout from "./layouts/app-layout";
-
 import Auth from "./Pages/Auth";
 import JobApplicants from "./Pages/job-applicants";
 import JobPage from "./Pages/job";
