@@ -1,7 +1,6 @@
 
 import { Link, NavLink } from "react-router-dom";
-import { SignedIn, SignedOut, UserButton, SignOutButton } from "@clerk/clerk-react";
-
+import { SignedIn, SignedOut, UserButton, SignOutButton } from "@clerk/clerk-react"; 
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
@@ -33,10 +32,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/95">
       <div className="container mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-4">
         {/* Portal Logo */}
-        <Link
-          to="/"
-          className="inline-flex items-center text-2xl font-extrabold tracking-tight sm:text-3xl"
-        >
+        <Link to="/" className="inline-flex items-center text-2xl font-extrabold tracking-tight sm:text-3xl">
           <span className="bg-gradient-to-r from-blue-600 via-violet-600 to-pink-500 bg-clip-text text-transparent dark:from-cyan-300 dark:via-violet-300 dark:to-pink-300">
             SriyanHirrd
           </span>
@@ -44,12 +40,7 @@ const Header = () => {
 
         <div className="flex flex-wrap items-center gap-3">
           {/* Theme toggle */}
-          <button
-            type="button"
-            onClick={() => setIsDark((value) => !value)}
-            className="rounded-full p-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-800"
-            aria-label="Toggle theme"
-          >
+          <button type="button" onClick={() => setIsDark((value) => !value)} className="rounded-full p-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-800" aria-label="Toggle theme">
             {isDark ? <Sun size={20} /> : <Moon size={20} />}
           </button>
 
@@ -65,51 +56,32 @@ const Header = () => {
 
               <SignedIn>
                 <nav className="flex flex-wrap items-center gap-2">
-                  {user?.role === "candidate" ? (
+                  {user?.role === "candidate" 
+                  ? (
                     <>
-                      <NavLink
-                        to="/jobs"
-                        end
-                        className={navClass}
-                      >
+                      <NavLink to="/jobs" end  className={navClass}>
                         Jobs
                       </NavLink>
 
-                      <NavLink
-                        to="/saved-jobs"
-                        className={navClass}
-                      >
+                      <NavLink to="/saved-jobs" className={navClass}>
                         Saved
                       </NavLink>
 
-                      <NavLink
-                        to="/my-applications"
-                        className={navClass}
-                      >
+                      <NavLink to="/my-applications" className={navClass} >
                         Applications
                       </NavLink>
                     </>
                   ) : user?.role === "recruiter" ? (
                     <>
-                      <NavLink
-                        to="/jobs"
-                        end
-                        className={navClass}
-                      >
+                      <NavLink to="/jobs" end className={navClass}>
                         Jobs
                       </NavLink>
 
-                      <NavLink
-                        to="/post-job"
-                        className={navClass}
-                      >
+                      <NavLink to="/post-job" className={navClass}>
                         Post a Job
                       </NavLink>
 
-                      <NavLink
-                        to="/my-jobs"
-                        className={navClass}
-                      >
+                      <NavLink to="/my-jobs" className={navClass} >
                         My Jobs
                       </NavLink>
                     </>
