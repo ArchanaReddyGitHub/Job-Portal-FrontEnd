@@ -11,12 +11,8 @@ const JobCard = ({ job }) => {
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
-    setSaved(
-      getSavedJobIds(user?.id).some(
-        (id) => String(id) === String(job.id)
-      )
-    );
-  }, [user?.id, job.id]);
+    setSaved( getSavedJobIds(user?.id).some( (id) => String(id) === String(job.id) ) );
+  }, [user?.id, job.id]); 
 
   const handleSave = (event) => {
     event.preventDefault();
