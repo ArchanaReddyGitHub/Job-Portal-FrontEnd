@@ -1,9 +1,9 @@
 
 import { useMemo, useState, useEffect } from "react";
-import JobCard from "@/components/job-card";
-import { useAuth } from "@/context/AuthContext";
-import { getJobs, getSavedJobIds } from "@/utils/localDb";
-import initialJobs from "@/Data/jobs.json";
+import JobCard from "../components/job-card";
+import { useAuth } from "../context/AuthContext";
+import { getJobs, getSavedJobIds } from "../utils/LocalDb";
+import initialJobs from "../Data/jobs.json";
 
 const SavedJobs = () => {
   const { user } = useAuth();

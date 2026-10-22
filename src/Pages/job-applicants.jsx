@@ -1,13 +1,9 @@
 
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useAuth } from "@/context/AuthContext";
-import { getJobs } from "@/utils/localDb";
-import {
-    getJobApplications,
-    updateApplicationStatus,
-    APPLICATION_STATUSES,
-} from "@/utils/applicationStore";
+import { useAuth } from "../context/AuthContext";
+import { getJobs } from "../utils/LocalDb";
+import { getJobApplications, updateApplicationStatus, APPLICATION_STATUSES } from "../utils/applicationStore";
 
 export default function JobApplicants() {
     const { id } = useParams();

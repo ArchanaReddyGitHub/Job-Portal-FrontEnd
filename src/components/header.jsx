@@ -1,15 +1,10 @@
 
 import { Link, NavLink } from "react-router-dom";
-import {
-  SignedIn,
-  SignedOut,
-  UserButton,
-  SignOutButton,
-} from "@clerk/clerk-react";
+import { SignedIn, SignedOut, UserButton, SignOutButton } from "@clerk/clerk-react";
 
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 import { Button } from "./ui/button";
 
 const Header = () => {

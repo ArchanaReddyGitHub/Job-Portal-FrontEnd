@@ -1,23 +1,14 @@
 
 import { useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import {
-  Briefcase,
-  MapPin,
-  ArrowLeft,
-  DoorOpen,
-  DoorClosed,
-} from "lucide-react";
+import { Briefcase, MapPin, ArrowLeft, DoorOpen, DoorClosed } from "lucide-react";
 import MDEditor from "@uiw/react-md-editor";
 
-import { Button } from "@/components/ui/button";
-import { getJobs, deleteJobPost } from "@/utils/localDb";
-import {
-  applyForJob,
-  getCandidateApplications,
-} from "@/utils/applicationStore";
-import initialJobs from "@/Data/jobs.json";
-import { useAuth } from "@/context/AuthContext";
+import { Button } from "../components/ui/button";
+import { getJobs, deleteJobPost } from "../utils/LocalDb";
+import { applyForJob, getCandidateApplications } from "../utils/applicationStore";
+import initialJobs from "../Data/jobs.json";
+import { useAuth } from "../context/AuthContext";
 
 const JobPage = () => {
   const { id } = useParams();

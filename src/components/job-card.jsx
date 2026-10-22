@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Bookmark, MapPinIcon, Building2 } from "lucide-react";
 import { Button } from "./ui/button";
-import { getSavedJobIds, toggleSavedJob } from "@/utils/localDb";
-import { useAuth } from "@/context/AuthContext";
+import { getSavedJobIds, toggleSavedJob } from "../utils/LocalDb";
+import { useAuth } from "../context/AuthContext";
 
 const JobCard = ({ job }) => {
   const { user } = useAuth();

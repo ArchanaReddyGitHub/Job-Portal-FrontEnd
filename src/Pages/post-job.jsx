@@ -1,22 +1,13 @@
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
+import { Button } from "../components/ui/button";
+import { Input } from "../components/ui/input";
+import { Textarea } from "../components/ui/textarea";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 import { State } from "country-state-city";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "@/context/AuthContext";
-import { saveJobPost } from "@/utils/localDb";
+import { useAuth } from "../context/AuthContext";
+import { saveJobPost } from "../utils/LocalDb";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import MDEditor from "@uiw/react-md-editor";

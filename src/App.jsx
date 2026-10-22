@@ -5,21 +5,21 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import AppLayout from "@/layouts/app-layout";
+import AppLayout from "./layouts/app-layout";
 
-import Auth from "@/Pages/Auth";
-import JobApplicants from "@/Pages/job-applicants";
-import JobPage from "@/Pages/job";
-import JobListing from "@/Pages/jobListing";
-import LandingPage from "@/Pages/landing";
-import MyApplications from "@/Pages/my-applications";
-import MyJobs from "@/Pages/my-jobs";
-import Onboarding from "@/Pages/Onboarding";
-import PostJob from "@/Pages/post-job";
-import SavedJobs from "@/Pages/saved-jobs";
+import Auth from "./Pages/Auth";
+import JobApplicants from "./Pages/job-applicants";
+import JobPage from "./Pages/job";
+import JobListing from "./Pages/jobListing";
+import LandingPage from "./Pages/landing";
+import MyApplications from "./Pages/my-applications";
+import MyJobs from "./Pages/my-jobs";
+import Onboarding from "./Pages/Onboarding";
+import PostJob from "./Pages/post-job";
+import SavedJobs from "./Pages/saved-jobs";
 
-import ProtectedRoute from "@/components/ProtectedRoute";
-import { ThemeProvider } from "@/components/theme-provider";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { ThemeProvider } from "./components/theme-provider";
 
 const router = createBrowserRouter([
   {

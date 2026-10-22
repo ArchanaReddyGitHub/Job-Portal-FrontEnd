@@ -2,11 +2,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PlusCircle, Users } from "lucide-react";
-
-import { useAuth } from "@/context/AuthContext";
-import { getJobs } from "@/utils/localDb";
-import JobCard from "@/components/job-card";
-import { Button } from "@/components/ui/button";
+import { useAuth } from "../context/AuthContext";
+import { getJobs } from "../utils/LocalDb";
+import JobCard from "../components/job-card";
+import { Button } from "../components/ui/button";
 
 const MyJobs = () => {
   const { user } = useAuth();

@@ -1,10 +1,8 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "@/context/AuthContext";
-import {
-    getCandidateApplications,
-} from "@/utils/applicationStore";
+import { useAuth } from "../context/AuthContext";
+import { getCandidateApplications } from "../utils/applicationStore";
 
 const statusColors = {
     Applied: "bg-blue-100 text-blue-700",

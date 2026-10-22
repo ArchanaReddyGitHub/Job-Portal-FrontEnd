@@ -2,12 +2,12 @@
 import { useMemo, useState } from "react";
 import { Search, X } from "lucide-react";
 
-import JobCard from "@/components/job-card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import JobCard from "../components/job-card";
+import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/button";
 
-import { getJobs } from "@/utils/localDb";
-import initialJobs from "@/Data/jobs.json";
+import { getJobs } from "../utils/LocalDb";
+import initialJobs from "../Data/jobs.json";
 
 const JobListing = () => {
   const [search, setSearch] = useState("");

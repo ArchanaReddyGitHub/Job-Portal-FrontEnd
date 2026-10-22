@@ -1,25 +1,11 @@
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import { Button } from "../components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
+import { Carousel, CarouselContent, CarouselItem } from "../components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import companies from "@/Data/companies.json";
-import faqs from "@/Data/faq.json";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import companies from "../Data/companies.json";
+import faqs from "../Data/faq.json";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion";
 import { Link } from "react-router-dom";
 
 const LandingPage = () => {
@@ -47,19 +33,11 @@ const LandingPage = () => {
 
         {/* Action Buttons */}
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-          <Button
-            asChild
-            variant="blue"
-            size="lg"
-          >
+          <Button asChild variant="blue" size="lg" >
             <Link to="/jobs">Find Jobs</Link>
           </Button>
 
-          <Button
-            asChild
-            variant="destructive"
-            size="lg"
-          >
+          <Button asChild variant="destructive" size="lg">
             <Link to="/post-job">Post a Job</Link>
           </Button>
         </div>
@@ -74,16 +52,9 @@ const LandingPage = () => {
         >
           <CarouselContent className="-ml-4 items-center">
             {companies.map(({ name, id, path }) => (
-              <CarouselItem
-                key={id}
-                className="basis-1/3 pl-4 sm:basis-1/4 lg:basis-1/6"
-              >
-                <div className="flex h-16 items-center justify-center rounded-lg border border-slate-200 bg-white/90 p-3 dark:border-slate-700 dark:bg-white/95">
-                  <img
-                    src={path}
-                    alt={name}
-                    className="max-h-10 w-full object-contain"
-                  />
+              <CarouselItem key={id} className="basis-1/3 pl-4 sm:basis-1/4 lg:basis-1/6">
+                <div className="flex h-16 items-center justify-center rounded-xl border border-slate-500  bg-slate-700 p-4 shadow-md transition-all duration-300 hover:translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-white">
+                  <img src={path} alt={name} className="max-h-10 w-full object-contain" />
                 </div>
               </CarouselItem>
             ))}
