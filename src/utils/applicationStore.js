@@ -1,29 +1,21 @@
 
 const APPLICATION_KEY = "jp_applications";
 
-export const APPLICATION_STATUSES = [
-  "Applied",
-  "Interview",
-  "Selected",
-  "Rejected",
-];
+export const APPLICATION_STATUSES = ["Applied", "Interview", "Selected", "Rejected"];
 
 export function getApplications() {
   try {
-    const data = JSON.parse(
-      localStorage.getItem(APPLICATION_KEY) || "[]"
-    );
+    const data = JSON.parse( localStorage.getItem(APPLICATION_KEY) || "[]" );
+    
     return Array.isArray(data) ? data : [];
+    
   } catch {
     return [];
   }
 }
 
 function saveApplications(applications) {
-  localStorage.setItem(
-    APPLICATION_KEY,
-    JSON.stringify(applications)
-  );
+  localStorage.setItem( APPLICATION_KEY, JSON.stringify(applications));
   window.dispatchEvent(new Event("applications-updated"));
 }
 
@@ -39,10 +31,7 @@ export function applyForJob(job, user) {
   const applications = getApplications();
 
   const alreadyApplied = applications.some(
-    (app) =>
-      String(app.job_id) === String(job.id) &&
-      app.candidate_id === user.id
-  );
+    (app) => String(app.job_id) === String(job.id) && app.candidate_id === user.id);
 
   if (alreadyApplied) {
     throw new Error("You already applied for this job.");
@@ -68,24 +57,14 @@ export function applyForJob(job, user) {
 }
 
 export function getCandidateApplications(candidateId) {
-  return getApplications().filter(
-    (app) => app.candidate_id === candidateId
-  );
+  return getApplications().filter( (app) => app.candidate_id === candidateId);
 }
 
 export function getJobApplications(jobId, recruiterId) {
-  return getApplications().filter(
-    (app) =>
-      String(app.job_id) === String(jobId) &&
-      app.recruiter_id === recruiterId
-  );
+  return getApplications().filter((app) => String(app.job_id) === String(jobId) && app.recruiter_id === recruiterId);
 }
 
-export function updateApplicationStatus(
-  applicationId,
-  recruiterId,
-  newStatus
-) {
+export function updateApplicationStatus( applicationId, recruiterId, newStatus) {
   if (!APPLICATION_STATUSES.includes(newStatus)) {
     throw new Error("Invalid application status.");
   }
@@ -99,17 +78,13 @@ export function updateApplicationStatus(
     throw new Error("Application not found.");
   }
 
-  if (
-    !application.recruiter_id ||
-    application.recruiter_id !== recruiterId
-  ) {
+  if (!application.recruiter_id || application.recruiter_id !== recruiterId) {
     throw new Error("You cannot update this application.");
   }
 
-  const updated = applications.map((app) =>
-    app.id === applicationId
-      ? {
-          ...app,
+  const updated = applications.map((app) => app.id === applicationId ? 
+      {
+          ...app, 
           status: newStatus,
           updatedAt: new Date().toISOString(),
         }
