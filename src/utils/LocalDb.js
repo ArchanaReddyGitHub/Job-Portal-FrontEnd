@@ -23,9 +23,8 @@ export const saveDb = (key, data) => {
 
 // Custom authentication helpers.
 // These are for your current AuthContext only, not Clerk authentication.
-// export const registerUser = (user) => {
-//   const users = getDb("jp_users");
-//   const email = user.email?.trim().toLowerCase();
+// export const registerUser = (user) => { const users = getDb("jp_users");
+// const email = user.email?.trim().toLowerCase();
 
 //   if (users.some((u) => u.email?.toLowerCase() === email)) {
 //     throw new Error("Email already registered. Please login.");
@@ -41,14 +40,9 @@ export const saveDb = (key, data) => {
 //   const normalizedEmail = email.trim().toLowerCase();
 //   const users = getDb("jp_users");
 
-//   const user = users.find(
-//     (u) =>
-//       u.email?.toLowerCase() === normalizedEmail &&
-//       u.password === password
-//   );
+//   const user = users.find((u) => u.email?.toLowerCase() === normalizedEmail && u.password === password);
 
 //   if (!user) throw new Error("Invalid email or password.");
-
 //   localStorage.setItem("jp_current_user", JSON.stringify(user));
 //   return user;
 // };
@@ -66,7 +60,7 @@ export const saveJobPost = (job) => {
   const jobs = getJobs();
   const index = jobs.findIndex((item) => String(item.id) === String(job.id));
 
-  if (index >= 0) {
+  if (index >= 0) { 
     jobs[index] = job;
   } else {
     jobs.push(job);
@@ -83,8 +77,7 @@ export const deleteJobPost = (jobId) => {
 };
 
 // Favorites are stored separately from job records.
-export const getSavedJobIds = (userId) =>
-  userId ? getDb(`jp_saved_${userId}`) : [];
+export const getSavedJobIds = (userId) => userId ? getDb(`jp_saved_${userId}`) : [];
 
 export const toggleSavedJob = (userId, jobId) => {
   if (!userId) return false;
@@ -94,17 +87,13 @@ export const toggleSavedJob = (userId, jobId) => {
   const id = String(jobId);
   const isSaved = ids.includes(id);
 
-  const updated = isSaved
-    ? ids.filter((savedId) => savedId !== id)
-    : [...ids, id];
-
+  const updated = isSaved ? ids.filter((savedId) => savedId !== id) : [...ids, id];
   saveDb(key, updated);
   return !isSaved;
 };
 
 // Candidate applications are also separate from saved jobs.
-export const getApplications = (userId) =>
-  userId ? getDb(`jp_applications_${userId}`) : [];
+export const getApplications = (userId) => userId ? getDb(`jp_applications_${userId}`) : [];
 
 export const applyToJob = (userId, jobId) => {
   if (!userId) return false;
@@ -117,11 +106,7 @@ export const applyToJob = (userId, jobId) => {
 
   if (alreadyApplied) return false;
 
-  applications.push({
-    jobId: String(jobId),
-    appliedAt: new Date().toISOString(),
-  });
-
+  applications.push({ jobId: String(jobId), appliedAt: new Date().toISOString()});
   saveDb(key, applications);
   return true;
 };
